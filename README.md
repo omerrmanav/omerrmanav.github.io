@@ -2,9 +2,11 @@
 
 Statik web sayfaları. Her proje kendi klasöründe, GitHub Pages ile yayınlanır.
 
-- `ev-paneli/` — saat, hava durumu, namaz vakitleri ve piyasa gösteren okuma ekranı.
-- `namaz/` — günlük namaz vakitleri ve namaz takibi (PWA).
-- `arac/` — araç yakıt, servis ve tarih takibi (PWA).
+| Proje | Açıklama | Adres |
+|---|---|---|
+| `ev-paneli/` | Saat, hava durumu, namaz vakitleri ve piyasa gösteren okuma ekranı | https://omerrmanav.github.io/ev-paneli/ |
+| `namaz/` | Günlük namaz vakitleri ve namaz takibi (PWA) | https://omerrmanav.github.io/namaz/ |
+| `arac/` | Araç yakıt, servis ve tarih takibi (PWA) | https://omerrmanav.github.io/arac/ |
 
 Kullanıcı verisi (namaz kayıtları, araç kayıtları vb.) bu depoda tutulmaz. Yalnızca kullanıcının kendi tarayıcısında (`localStorage`) saklanır.
 
