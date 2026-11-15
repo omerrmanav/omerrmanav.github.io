@@ -41,7 +41,7 @@
   body {
     color: var(--ink);
     font-family: "Inter", -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-weight: 500;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
@@ -66,7 +66,7 @@
     letter-spacing: -0.045em;
     line-height: 1;
   }
-  .date { margin-top: 6px; font-size: 17px; font-weight: 600; color: var(--ink-2); }
+  .date { margin-top: 6px; font-size: 17px; font-weight: 500; color: var(--ink-2); }
 
   .card {
     background: var(--card);
@@ -76,49 +76,49 @@
     display: flex; flex-direction: column;
   }
   .label {
-    font-size: 12.5px; font-weight: 700; letter-spacing: .08em;
+    font-size: 12.5px; font-weight: 600; letter-spacing: .08em;
     text-transform: uppercase; color: var(--ink-2); margin-bottom: 9px;
     display: flex; justify-content: space-between; align-items: baseline;
   }
-  .label small { font-weight: 600; letter-spacing: 0; text-transform: none; font-size: 13px; }
+  .label small { font-weight: 400; letter-spacing: 0; text-transform: none; font-size: 13px; }
 
   /* Hava */
   .wx-top { display: flex; align-items: center; gap: 12px; }
   .wx-icon { font-size: 46px; line-height: 1; }
-  .wx-temp { font-size: 48px; font-weight: 600; letter-spacing: -0.03em; line-height: 1; }
-  .wx-desc { font-size: 15px; font-weight: 600; color: var(--ink-2); margin-top: 4px; }
-  .wx-meta { margin-left: auto; text-align: right; font-size: 13.5px; font-weight: 500; color: var(--ink-2); line-height: 1.4; white-space: nowrap; }
-  .wx-meta b { color: var(--ink); font-weight: 700; }
+  .wx-temp { font-size: 48px; font-weight: 500; letter-spacing: -0.03em; line-height: 1; }
+  .wx-desc { font-size: 15px; font-weight: 500; color: var(--ink-2); margin-top: 4px; }
+  .wx-meta { margin-left: auto; text-align: right; font-size: 13.5px; font-weight: 400; color: var(--ink-2); line-height: 1.4; white-space: nowrap; }
+  .wx-meta b { color: var(--ink); font-weight: 600; }
   .days { display: flex; justify-content: space-between; margin-top: 10px; padding-top: 9px; border-top: 1px solid var(--line); }
   .d { text-align: center; flex: 1; }
-  .d .dn { font-size: 13px; font-weight: 700; color: var(--ink-2); }
+  .d .dn { font-size: 13px; font-weight: 500; color: var(--ink-2); }
   .d .e { font-size: 24px; margin: 3px 0 2px; line-height: 1.1; }
-  .d .hi { font-size: 16px; font-weight: 700; }
-  .d .lo { font-size: 13.5px; font-weight: 600; color: var(--ink-2); }
-  .d .p { font-size: 11.5px; font-weight: 600; color: var(--accent); height: 14px; }
+  .d .hi { font-size: 16px; font-weight: 600; }
+  .d .lo { font-size: 13.5px; font-weight: 400; color: var(--ink-2); }
+  .d .p { font-size: 11.5px; font-weight: 500; color: var(--accent); height: 14px; }
 
   /* Namaz */
-  .next { font-size: 15px; color: var(--accent); font-weight: 700; text-transform: none; letter-spacing: 0; }
+  .next { font-size: 15px; color: var(--accent); font-weight: 600; text-transform: none; letter-spacing: 0; }
   /* 3 sütun x 2 satır: İmsak-Güneş | Öğle-İkindi | Akşam-Yatsı (sütun sütun dolar) */
   .prayers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(2, auto); grid-auto-flow: column; gap: 6px; flex: 1; align-content: center; }
   .pr { display: flex; flex-direction: column; align-items: center; padding: 8px 4px 7px; border-radius: 12px; }
-  .pr .n { font-size: 13px; font-weight: 600; color: var(--ink-2); }
-  .pr .v { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; margin-top: 2px; }
+  .pr .n { font-size: 13px; font-weight: 500; color: var(--ink-2); }
+  .pr .v { font-size: 17px; font-weight: 600; letter-spacing: -0.02em; margin-top: 2px; }
   .pr.on { background: var(--hl); }
-  .pr.on .n { color: var(--accent); font-weight: 700; }
+  .pr.on .n { color: var(--accent); font-weight: 600; }
 
   /* Piyasa */
   .mk { display: grid; grid-template-columns: 1fr 1fr; gap: 9px 12px; flex: 1; align-content: center; }
-  .m .n { font-size: 14px; font-weight: 600; color: var(--ink-2); white-space: nowrap; }
-  .m .v { font-size: 23px; font-weight: 700; letter-spacing: -0.02em; margin-top: 2px; }
-  .m .c { font-size: 13px; font-weight: 700; margin-left: 4px; }
+  .m .n { font-size: 14px; font-weight: 500; color: var(--ink-2); white-space: nowrap; }
+  .m .v { font-size: 23px; font-weight: 600; letter-spacing: -0.02em; margin-top: 2px; }
+  .m .c { font-size: 13px; font-weight: 600; margin-left: 4px; }
   .up { color: var(--up); } .down { color: var(--down); }
 
   .footbar { position: relative; margin-top: auto; text-align: center; min-height: 20px; }
-  .foot { font-size: 12px; font-weight: 600; color: var(--ink-2); line-height: 20px; }
+  .foot { font-size: 12px; font-weight: 500; color: var(--ink-2); line-height: 20px; }
   #themeBtn {
     position: absolute; right: 0; top: 50%; transform: translateY(-50%);
-    font: inherit; font-size: 12px; font-weight: 700; color: var(--ink-2);
+    font: inherit; font-size: 12px; font-weight: 600; color: var(--ink-2);
     background: var(--card); border: 1px solid var(--line); border-radius: 999px;
     padding: 2px 10px; line-height: 16px; cursor: pointer; user-select: none;
   }
@@ -127,58 +127,103 @@
   .clock { cursor: pointer; touch-action: manipulation; }
   #toast {
     position: fixed; left: 50%; bottom: 12%; transform: translateX(-50%);
-    background: var(--ink); color: var(--bg); font-size: 16px; font-weight: 700;
+    background: var(--ink); color: var(--bg); font-size: 16px; font-weight: 600;
     padding: 9px 20px; border-radius: 999px; opacity: 0; pointer-events: none;
     transition: opacity .2s; white-space: nowrap; z-index: 10;
   }
   #toast.on { opacity: .94; }
-  #themeBtn::after { content: ""; position: absolute; inset: -8px -6px; }
+  #themeBtn::after { content: ""; position: absolute; top: -8px; right: -6px; bottom: -8px; left: -6px; }
   .stale { color: var(--down); }
 
-  /* Kısa dikey ekran */
-  @media (orientation: portrait) and (max-height: 700px) {
-    main { gap: 8px; padding-top: 8px; padding-bottom: 8px; }
-    .time { font-size: 64px; }
-    .card { padding: 12px 14px; }
-    .wx-icon, .wx-temp { font-size: 40px; }
+  /* Dikey ekran: tüm ölçüler --u birimine bağlıdır (tasarım yüksekliği ≈215u; küçük ekranda orantılı küçülür). */
+  @media (orientation: portrait) {
+    :root { --u: min(1vw, 0.465vh, 5px); }
+    main { padding: max(calc(var(--u) * 3.889), env(safe-area-inset-top)) calc(var(--u) * 4.444) max(calc(var(--u) * 3.889), env(safe-area-inset-bottom)); gap: calc(var(--u) * 2.778); }
+    /* Saat */
+  .clock { padding: calc(var(--u) * 1.111) 0 0; }
+    .time { font-size: clamp(calc(var(--u) * 17.778), 21vw, calc(var(--u) * 31.111)); }
+    .date { margin-top: calc(var(--u) * 1.667); font-size: calc(var(--u) * 4.722); }
+    .card { border-radius: calc(var(--u) * 6.111); padding: calc(var(--u) * 3.611) calc(var(--u) * 4.444); }
+    .label { font-size: calc(var(--u) * 3.472); margin-bottom: calc(var(--u) * 2.5); }
+    .label small { font-size: calc(var(--u) * 3.611); }
+    /* Hava */
+  .wx-top { gap: calc(var(--u) * 3.333); }
+    .wx-icon { font-size: calc(var(--u) * 12.778); }
+    .wx-temp { font-size: calc(var(--u) * 13.333); }
+    .wx-desc { font-size: calc(var(--u) * 4.167); margin-top: calc(var(--u) * 1.111); }
+    .wx-meta { font-size: calc(var(--u) * 3.75); }
+    .days { margin-top: calc(var(--u) * 2.778); padding-top: calc(var(--u) * 2.5); }
+    .d .dn { font-size: calc(var(--u) * 3.611); }
+    .d .e { font-size: calc(var(--u) * 6.667); margin: calc(var(--u) * 0.833) 0 calc(var(--u) * 0.556); }
+    .d .hi { font-size: calc(var(--u) * 4.444); }
+    .d .lo { font-size: calc(var(--u) * 3.75); }
+    .d .p { font-size: calc(var(--u) * 3.194); height: calc(var(--u) * 3.889); }
+    /* Namaz */
+  .next { font-size: calc(var(--u) * 4.167); }
+    /* 3 sütun x 2 satır: İmsak-Güneş | Öğle-İkindi | Akşam-Yatsı (sütun sütun dolar) */
+  .prayers { gap: calc(var(--u) * 1.667); }
+    .pr { padding: calc(var(--u) * 2.222) calc(var(--u) * 1.111) calc(var(--u) * 1.944); border-radius: calc(var(--u) * 3.333); }
+    .pr .n { font-size: calc(var(--u) * 3.611); }
+    .pr .v { font-size: calc(var(--u) * 4.722); margin-top: calc(var(--u) * 0.556); }
+    /* Piyasa */
+  .mk { gap: calc(var(--u) * 2.5) calc(var(--u) * 3.333); }
+    .m .n { font-size: calc(var(--u) * 3.889); }
+    .m .v { font-size: calc(var(--u) * 6.389); margin-top: calc(var(--u) * 0.556); }
+    .m .c { font-size: calc(var(--u) * 3.611); margin-left: calc(var(--u) * 1.111); }
+    .footbar { min-height: calc(var(--u) * 5.556); }
+    .foot { font-size: calc(var(--u) * 3.333); line-height: calc(var(--u) * 5.556); }
+    #themeBtn { font-size: calc(var(--u) * 3.333); border-radius: calc(var(--u) * 277.5); padding: calc(var(--u) * 0.556) calc(var(--u) * 2.778); line-height: calc(var(--u) * 4.444); }
+    #toast { font-size: calc(var(--u) * 4.444); padding: calc(var(--u) * 2.5) calc(var(--u) * 5.556); border-radius: calc(var(--u) * 277.5); }
+    #themeBtn::after { top: calc(var(--u) * -2.222); right: calc(var(--u) * -1.667); bottom: calc(var(--u) * -2.222); left: calc(var(--u) * -1.667); }
+    .time { font-size: calc(var(--u) * 21); }
+    main { max-width: 520px; }
   }
 
-  /* Yatay ekran: iki sütun */
-  @media (orientation: landscape) and (max-height: 600px) {
+  /* Kısa dikey ekran */
+
+  /* Yatay ekran: iki sütun. Tüm ölçüler tek bir birime (--u) bağlıdır; 640x360'ta 1u = 3,2px.
+     --u hem genişliğe hem yüksekliğe göre küçülür, böylece her yatay ekranda orantılı sığar. */
+  @media (orientation: landscape) {
+    :root { --u: min(0.5vw, 0.9vh, 5px); }
     main {
       max-width: none;
       display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      grid-template-rows: auto 1fr auto;
+      grid-template-columns: minmax(0, 1.12fr) minmax(0, 1.3fr);
+      grid-template-rows: auto minmax(0, 1fr) auto;
       grid-template-areas: "clock wx" "mkt prs" "foot foot";
-      gap: 8px 10px;
-      padding: max(8px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) 4px max(14px, env(safe-area-inset-left));
+      gap: calc(var(--u) * 2.5) calc(var(--u) * 3.1);
+      padding: max(calc(var(--u) * 2.5), env(safe-area-inset-top)) max(calc(var(--u) * 4.4), env(safe-area-inset-right)) calc(var(--u) * 1.3) max(calc(var(--u) * 4.4), env(safe-area-inset-left));
     }
-    .clock { grid-area: clock; display: flex; flex-direction: column; justify-content: center; padding: 0; min-height: 0; }
+    .clock { grid-area: clock; display: flex; flex-direction: column; justify-content: center; padding: 0; min-height: 0; min-width: 0; }
     #wx { grid-area: wx; } #prs { grid-area: prs; } #mkt { grid-area: mkt; }
-    .footbar { grid-area: foot; margin: 0; min-height: 18px; }
-    .foot { font-size: 11px; line-height: 18px; }
-    #themeBtn { font-size: 11px; padding: 1px 9px; line-height: 15px; }
-    .time { font-size: min(34vh, 15vw); }
-    .date { margin-top: 2px; font-size: 16px; }
-    .card { padding: 9px 13px; border-radius: 16px; min-height: 0; }
-    .label { margin-bottom: 6px; font-size: 11.5px; }
-    .label small { font-size: 12px; }
-    .wx-top { gap: 10px; }
-    .wx-icon { font-size: 36px; } .wx-temp { font-size: 38px; }
-    .wx-desc { font-size: 13px; margin-top: 2px; }
-    .wx-meta { font-size: 12.5px; line-height: 1.2; }
-    .days { margin-top: 7px; padding-top: 6px; }
-    .d .dn { font-size: 12px; } .d .e { font-size: 20px; margin: 2px 0 1px; }
-    .d .hi { font-size: 15px; } .d .lo { font-size: 12.5px; } .d .p { display: none; }
-    .next { font-size: 14px; }
-    .prayers { gap: 4px 6px; }
-    .pr { flex-direction: row; justify-content: space-between; align-items: baseline; gap: 4px; padding: 8px 10px; }
-    .pr .n { font-size: 12.5px; } .pr .v { font-size: 17px; margin-top: 0; }
-    .mk { gap: 4px 8px; align-content: space-around; }
-    .m .n { font-size: 12.5px; }
-    .m .v { font-size: 21px; margin-top: 1px; }
-    .m .c { font-size: 12px; margin-left: 4px; }
+    .footbar { grid-area: foot; margin: 0; min-height: calc(var(--u) * 5.6); }
+    .foot { font-size: max(9px, calc(var(--u) * 3.4)); line-height: calc(var(--u) * 5.6); }
+    #themeBtn { font-size: max(9px, calc(var(--u) * 3.4)); padding: calc(var(--u) * 0.3) calc(var(--u) * 2.8); line-height: calc(var(--u) * 4.4); }
+    .time { font-size: calc(var(--u) * 30); }
+    .date { margin-top: calc(var(--u) * 0.6); font-size: max(11px, calc(var(--u) * 5)); }
+    .card { padding: calc(var(--u) * 2.8) calc(var(--u) * 4); border-radius: calc(var(--u) * 5); min-height: 0; min-width: 0; overflow: hidden; }
+    .label { margin-bottom: calc(var(--u) * 1.9); font-size: max(9px, calc(var(--u) * 3.6)); }
+    .label small { font-size: max(9px, calc(var(--u) * 3.75)); }
+    .wx-top { gap: calc(var(--u) * 3.1); }
+    .wx-icon { font-size: calc(var(--u) * 11.3); }
+    .wx-temp { font-size: calc(var(--u) * 11.9); }
+    .wx-desc { font-size: max(10px, calc(var(--u) * 4)); margin-top: calc(var(--u) * 0.6); }
+    .wx-meta { font-size: max(9.5px, calc(var(--u) * 3.9)); line-height: 1.2; }
+    .days { margin-top: calc(var(--u) * 2.2); padding-top: calc(var(--u) * 1.9); }
+    .d .dn { font-size: max(9px, calc(var(--u) * 3.75)); }
+    .d .e { font-size: calc(var(--u) * 6.2); margin: calc(var(--u) * 0.6) 0 calc(var(--u) * 0.3); }
+    .d .hi { font-size: max(10px, calc(var(--u) * 4.7)); }
+    .d .lo { font-size: max(9px, calc(var(--u) * 3.9)); }
+    .d .p { display: none; }
+    .next { font-size: max(10px, calc(var(--u) * 4.4)); }
+    .prayers { gap: calc(var(--u) * 1.3) calc(var(--u) * 1.9); }
+    .pr { flex-direction: row; justify-content: space-between; align-items: baseline; gap: calc(var(--u) * 1); padding: calc(var(--u) * 2.2) calc(var(--u) * 1.6); }
+    .pr .n { font-size: max(9px, calc(var(--u) * 3.9)); }
+    .pr .v { font-size: max(10.5px, calc(var(--u) * 5.1)); margin-top: 0; }
+    .mk { gap: calc(var(--u) * 0.8) calc(var(--u) * 1.8); align-content: space-around; }
+    .m .n { font-size: max(9px, calc(var(--u) * 3.6)); }
+    .m .v { font-size: max(12px, calc(var(--u) * 5.8)); margin-top: 0; letter-spacing: -0.03em; }
+    .m .c { font-size: max(9px, calc(var(--u) * 3.4)); margin-left: calc(var(--u) * 0.8); }
   }
 </style>
 </head>
