@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Araç Takip</title>
+  <meta name="description" content="Araç yakıt, servis ve tarih takibi.">
+  <meta name="theme-color" content="#007AFF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#082a55" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Araç">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="reports.css">
+</head>
+<body>
+  <div id="app">
+    <header id="hdr" class="hdr"></header>
+    <main id="view" class="view" aria-live="polite"></main>
+    <button id="fab" class="fab" data-act="add" aria-label="Ekle" hidden>
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
+    <nav id="tabs" class="tabs" aria-label="Ana gezinme"></nav>
+  </div>
+
+  <div id="sheet" class="sheet-wrap" hidden>
+    <div class="backdrop"></div>
+    <div class="sheet" role="dialog" aria-modal="true" id="sheet-body"></div>
+  </div>
+  <div id="dialog" class="dialog-wrap" hidden></div>
+  <div id="toast" class="toast" role="status" hidden></div>
+
+  <noscript><p style="padding:24px">Bu uygulama için JavaScript gereklidir.</p></noscript>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

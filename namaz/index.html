@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Namaz Takip</title>
+  <meta name="description" content="Günlük namaz vakitleri ve kılınan namazların takibi.">
+  <meta name="theme-color" content="#0f766e" media="(prefers-color-scheme: light)" data-auto="#0f766e">
+  <meta name="theme-color" content="#0b1f1e" media="(prefers-color-scheme: dark)" data-auto="#0b1f1e">
+  <meta name="color-scheme" content="light dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Namaz">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header id="hdr" class="hdr"></header>
+    <main id="view" class="view" aria-live="polite"></main>
+    <nav id="tabs" class="tabs" aria-label="Ana gezinme"></nav>
+  </div>
+
+  <!-- Alttan açılan sayfa (ayarlar, gün düzenleme, vakit menüsü) -->
+  <div id="sheet" class="sheet-wrap" hidden>
+    <div class="backdrop" data-act="close"></div>
+    <div class="sheet" role="dialog" aria-modal="true" id="sheet-body"></div>
+  </div>
+
+  <!-- İlk açılış / konum seçimi -->
+  <div id="onb" class="onb" hidden></div>
+
+  <noscript><p style="padding:24px">Bu uygulama için JavaScript gereklidir.</p></noscript>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
