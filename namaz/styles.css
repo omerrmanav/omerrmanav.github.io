@@ -57,7 +57,7 @@ button:disabled { cursor: default; }
 h1, h2, h3, p { margin: 0; }
 .num { font-variant-numeric: tabular-nums; }
 
-#app { max-width: 480px; margin: 0 auto; min-height: 100dvh; background: var(--bg); position: relative; }
+#app { max-width: 480px; margin: 0 auto; min-height: 100vh; min-height: 100dvh; background: var(--bg); position: relative; }
 
 /* ---------- Üst başlık (black-translucent durum çubuğu için koyu zemin) ---------- */
 .hdr {
@@ -159,9 +159,9 @@ h1, h2, h3, p { margin: 0; }
 .cal-head h2 { font-size: 18px; text-transform: capitalize; }
 .cal-head .icon-btn { color: var(--accent); }
 .cal-head .icon-btn:active { background: rgba(var(--accent-rgb), 0.12); }
-.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; }
 .cal-wd { text-align: center; font-size: 12px; color: var(--muted); padding-bottom: 2px; }
-.cell { aspect-ratio: 1; min-height: 44px; border-radius: 12px; display: grid; place-items: center; font-weight: 600; font-size: 15px; background: rgba(var(--accent-rgb), 0.06); position: relative; }
+.cell { aspect-ratio: 1; min-width: 0; min-height: 40px; border-radius: 12px; display: grid; place-items: center; font-weight: 600; font-size: 15px; background: rgba(var(--accent-rgb), 0.06); position: relative; }
 .cell.empty { background: none; }
 .cell.l1 { background: rgba(var(--accent-rgb), 0.2); }
 .cell.l2 { background: rgba(var(--accent-rgb), 0.36); }
@@ -194,10 +194,12 @@ h1, h2, h3, p { margin: 0; }
 .tabs {
   position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; z-index: 30;
   display: flex; padding: 6px 8px calc(env(safe-area-inset-bottom) + 4px);
-  background: color-mix(in srgb, var(--card) 86%, transparent);
+  background: var(--card);
   -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
   border-top: 1px solid var(--line);
 }
+
+@supports (background: color-mix(in srgb, red, blue)) { .tabs { background: color-mix(in srgb, var(--card) 86%, transparent); } }
 .tab { flex: 1; min-height: 48px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: var(--muted); font-size: 11px; font-weight: 500; }
 .tab[aria-current="page"] { color: var(--accent); }
 
@@ -207,7 +209,7 @@ h1, h2, h3, p { margin: 0; }
 .backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.42); animation: fadeb 0.2s ease both; }
 @keyframes fadeb { from { opacity: 0; } }
 .sheet {
-  position: relative; width: 100%; max-width: 480px; max-height: 88dvh; overflow-y: auto; overscroll-behavior: contain;
+  position: relative; width: 100%; max-width: 480px; max-height: 88%; max-height: 88dvh; overflow-y: auto; overscroll-behavior: contain;
   background: var(--bg); border-radius: 24px 24px 0 0; padding: 8px 16px calc(env(safe-area-inset-bottom) + 20px);
   animation: up 0.28s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }

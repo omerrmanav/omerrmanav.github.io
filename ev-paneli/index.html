@@ -137,7 +137,7 @@
 
   /* Dikey ekran: tüm ölçüler --u birimine bağlıdır (tasarım yüksekliği ≈215u; küçük ekranda orantılı küçülür). */
   @media (orientation: portrait) {
-    :root { --u: min(1vw, 0.465vh, 5px); }
+    :root { --u: min(1vw, calc(var(--vh, 1vh) * 0.465), 5px); }
     main { padding: max(calc(var(--u) * 3.889), env(safe-area-inset-top)) calc(var(--u) * 4.444) max(calc(var(--u) * 3.889), env(safe-area-inset-bottom)); gap: calc(var(--u) * 2.778); }
     /* Saat */
   .clock { padding: calc(var(--u) * 1.111) 0 0; }
@@ -184,7 +184,7 @@
   /* Yatay ekran: iki sütun. Tüm ölçüler tek bir birime (--u) bağlıdır; 640x360'ta 1u = 3,2px.
      --u hem genişliğe hem yüksekliğe göre küçülür, böylece her yatay ekranda orantılı sığar. */
   @media (orientation: landscape) {
-    :root { --u: min(0.5vw, 0.9vh, 5px); }
+    :root { --u: min(0.5vw, calc(var(--vh, 1vh) * 0.9), 5px); }
     main {
       max-width: none;
       display: grid;
@@ -370,7 +370,7 @@
       '&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max' +
       '&timezone=Europe%2FIstanbul&forecast_days=6';
     return getJSON(url).then(function (d) { save('wx2', d); renderWeather(d); stamp('wx', true); })
-      .catch(function () { stamp('wx', false); });
+      .catch(function () { stamp('wx', false); retryLater('wx', fetchWeather); });
   }
 
   /* ---------- Namaz ---------- */
@@ -414,8 +414,8 @@
       var t = cleanTimes(d && d.data && d.data.timings);
       if (!t) throw new Error('geçersiz namaz verisi');
       prayerData = { date: ds, t: t };
-      save('pr', prayerData); renderPrayers();
-    }).catch(function () {});
+      save('pr', prayerData); renderPrayers(); retryOk('pr');
+    }).catch(function () { retryLater('pr', fetchPrayers); });
   }
 
   /* ---------- Piyasa ---------- */
@@ -435,13 +435,19 @@
   function fetchMarket() {
     return getJSON('https://finans.truncgil.com/v4/today.json')
       .then(function (d) { save('mk', d); renderMarket(d); stamp('mk', true); })
-      .catch(function () { stamp('mk', false); });
+      .catch(function () { stamp('mk', false); retryLater('mk', fetchMarket); });
   }
 
   /* ---------- Alt bilgi ---------- */
   var ok = { wx: true, mk: true };
+  var lastOk = { wx: 0, mk: 0 };
+  var retry = { wx: { n: 0, t: null }, mk: { n: 0, t: null }, pr: { n: 0, t: null } };
+  // Hata sonrası 15 sn, 30 sn, 60 sn ... en çok 5 dk aralıkla yeniden dener.
+  function retryLater(k, fn) { var r = retry[k]; clearTimeout(r.t); r.t = setTimeout(fn, Math.min(300000, 15000 * Math.pow(2, r.n++))); }
+  function retryOk(k) { retry[k].n = 0; clearTimeout(retry[k].t); }
   function stamp(k, good) {
     ok[k] = good;
+    if (good) { lastOk[k] = Date.now(); retryOk(k); }
     var p = istParts();
     $('foot').innerHTML = !(ok.wx && ok.mk) ? '<span class="stale">Bağlantı sorunu · eski veri gösteriliyor</span>' :
       'Güncellendi ' + pad(p.h) + ':' + pad(p.m);
@@ -453,7 +459,15 @@
       navigator.wakeLock.request('screen').catch(function () {});
     }
   }
-  document.addEventListener('visibilitychange', keepAwake);
+  document.addEventListener('visibilitychange', function () {
+    keepAwake();
+    if (document.visibilityState !== 'visible') return;
+    var now = Date.now();
+    if (now - lastOk.wx > 5 * 60 * 1000) fetchWeather();
+    if (now - lastOk.mk > 3 * 60 * 1000) fetchMarket();
+    fetchPrayers();
+  });
+  window.addEventListener('online', function () { fetchWeather(); fetchMarket(); fetchPrayers(); });
 
   /* ---------- Tema düğmesi: Otomatik → Açık → Koyu ---------- */
   var toastTimer = null;
@@ -469,6 +483,13 @@
   }
   document.getElementById('themeBtn').addEventListener('click', cycleTheme);
   document.querySelector('.clock').addEventListener('click', cycleTheme);   // büyük saat alanına dokunmak da temayı değiştirir
+
+  /* ---------- Gerçek görünür yükseklik (--vh) ---------- */
+  // Android Chrome'da 1vh, adres çubuğu gizliyken ölçülür; görünür alandan büyük olabilir. Bu yüzden innerHeight kullanılır.
+  function setVh() { document.documentElement.style.setProperty('--vh', (window.innerHeight / 100) + 'px'); }
+  setVh();
+  window.addEventListener('resize', setVh);
+  window.addEventListener('orientationchange', function () { setTimeout(setVh, 200); });
 
   /* ---------- Başlat ---------- */
   function boot() {

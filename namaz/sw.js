@@ -1,6 +1,6 @@
 // Service worker: uygulama kabuğu cache-first, Aladhan API network-first (önbellek yedekli).
 // Yeni sürüm yayınlarken SHELL_VERSION değerini artırın.
-const SHELL_VERSION = 'v2';
+const SHELL_VERSION = 'v5';
 const SHELL_CACHE = `namaz-shell-${SHELL_VERSION}`;
 const API_CACHE = 'namaz-api';
 const SHELL = [

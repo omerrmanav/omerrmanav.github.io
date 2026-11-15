@@ -1,7 +1,7 @@
 // Service worker: uygulama kabuğu cache-first. fuel-price.json (günlük yakıt fiyatı) asla önbelleğe alınmaz: yalnızca ağ.
 // Aynı alan adını paylaşan diğer projelerin önbelleklerine dokunmaz (yalnızca 'arac-shell-' ile başlayanları siler).
 // Yeni sürüm yayınlarken SHELL_VERSION değerini artırın.
-const SHELL_VERSION = 'v5';
+const SHELL_VERSION = 'v7';
 const SHELL_CACHE = `arac-shell-${SHELL_VERSION}`;
 const SHELL = [
   './', 'index.html', 'styles.css', 'reports.css', 'app.js', 'state.js', 'storage.js', 'dates.js',
