@@ -1,11 +1,11 @@
 {
   "il": 34,
   "ilName": "İstanbul",
-  "date": "2026-11-16",
+  "date": "2026-11-17",
   "source": "Opet · İstanbul Avrupa (ilçe medyanı)",
   "prices": {
-    "motorin": 95.21,
-    "benzin": 71.16,
+    "motorin": 95.31,
+    "benzin": 71.24,
     "lpg": null
   }
 }
